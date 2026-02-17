@@ -1,0 +1,39 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(232, 232, 232);
+}
+
+.app {
+  width: 300px;
+  border: solid 2px black;
+  padding-top: 30px;
+  padding: 20px;
+  padding-bottom: 30px;
+  background-color: rgba(254, 252, 182, 1);
+  margin-top: 50px;
+  box-shadow: 5px 5px 15px;
+}
+
+.todo_item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+}
+
+input {
+  border-radius: 20px;
+  padding: 5px;
+}
+
+button {
+  border-radius: 20px;
+  padding: 5px;
+  margin: 2px;
+}
+
+.star {
+  cursor: pointer;
+  font-size: 18px;
+}
