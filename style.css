@@ -6,7 +6,7 @@ body {
 }
 
 .app {
-  width: 300px;
+  width: 400px;
   border: solid 2px black;
   padding-top: 30px;
   padding: 20px;
@@ -19,12 +19,13 @@ body {
 .todo_item {
   display: grid;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
 }
 
 input {
   border-radius: 20px;
   padding: 5px;
+  width: 260px;
 }
 
 button {

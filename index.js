@@ -56,6 +56,23 @@ function toggleFavorite(id) {
   saveAndRender();
 }
 
+function increaseAmount(id) {
+  const todo = todoArr.find((t) => t.id === id);
+  todo.amount++;
+  console.log("Antal øget:", todo.amount);
+  saveAndRender();
+}
+
+function decreaseAmount(id) {
+  const todo = todoArr.find((t) => t.id === id);
+
+  if (todo.amount > 1) {
+    todo.amount--;
+    console.log("Antal mindsket:", todo.amount);
+    saveAndRender();
+  }
+}
+
 function deleteTodo(id) {
   console.log("Sletter todo med id:", id);
 
@@ -69,8 +86,6 @@ function deleteTodo(id) {
 function saveAndRender() {
   console.log("Gemmer todos i localStorage...");
   localStorage.setItem("todos", JSON.stringify(todoArr));
-
-  console.log("Gen-renderer UI");
   renderTodos();
 }
 
@@ -94,11 +109,19 @@ function renderTodos() {
 
     // tekst
     const textSpan = document.createElement("span");
-    textSpan.textContent = todo.text;
+    textSpan.textContent = `${todo.text} (${todo.amount})`;
+
+    const minusBtn = document.createElement("button");
+    minusBtn.textContent = "−";
+    minusBtn.onclick = () => decreaseAmount(todo.id);
+
+    const plusBtn = document.createElement("button");
+    plusBtn.textContent = "+";
+    plusBtn.onclick = () => increaseAmount(todo.id);
 
     const leftWrapper = document.createElement("div");
     leftWrapper.classList.add("todo_left");
-    leftWrapper.append(star, textSpan);
+    leftWrapper.append(star, textSpan, minusBtn, plusBtn);
 
     // knapper
     const toggleBtn = document.createElement("button");
